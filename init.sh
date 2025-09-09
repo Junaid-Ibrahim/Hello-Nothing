@@ -24,3 +24,4 @@ create-keystore() {
 }
 
 test -a *.keystore || create-keystore
+mkdir -p hello-world/build/artifacts
