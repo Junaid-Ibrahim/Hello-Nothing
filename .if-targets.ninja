@@ -1,0 +1,9 @@
+
+build classes.dex : f-dex
+
+build ${nn}-ds.apk : link $c/am.xml
+
+build ${nn}-s.apk : zip ${nn}-ds.apk classes.dex
+build ${nn}.apk | ${nn}.apk.idsig : sign ${nn}-s.apk
+
+default ${nn}.apk

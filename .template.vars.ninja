@@ -1,0 +1,8 @@
+r=../../..
+p=$r/android.jar
+c=../../code
+k=$r/x.keystore
+ka=x
+ksp=x
+api=34
+

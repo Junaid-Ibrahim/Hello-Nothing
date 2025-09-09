@@ -1,0 +1,31 @@
+r8=java -cp $r/r8.jar com.android.tools.r8.D8
+d8=d8
+
+rule flatten
+     command = aapt2 compile $in -o .
+     description = flattening
+
+rule link
+    command = aapt2 link -o $out -I $p -A $c/assets --manifest $in
+    description = linking
+
+rule i-class
+    command = javac -Xlint:all -O -g:none --release 11 -cp $p -d . $in
+    description= classing
+
+rule i-dex
+    command = dirname $out | xargs -I% mkdir -p % ; dirname $out | xargs -I% $r8 --release --intermediate --min-api $api --lib $p --output % $in
+    description = dexing
+
+rule f-dex 
+    command = $r8 --release --lib $p --output . $in
+    description = combining
+
+rule zip
+    command = zip -qr $in --out $out
+    description = zipping
+
+rule sign 
+    command = apksigner sign --ks $k --ks-key-alias $ka --ks-pass pass:$ksp --key-pass pass:$ksp --out $out $in
+    description = signing
+
