@@ -1,7 +1,7 @@
 # Hello-Nothing
  A demo of android app development on android
 
-#Instructions
+# Instructions
 before generating the apk, make sure termux is set up properly for this process, i.e it should have at least `termux-setup-storage` and `yes | pkg up` 
 
 `./init.sh` - follow the instructions for the creation of a keystore. make sure internet connection is available for *.jar.
