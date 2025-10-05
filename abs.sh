@@ -58,5 +58,5 @@ apk-rb() {
 	test $(pwd) = $CP/build/artifacts || cd $CP/build/artifacts
 	samu 
 	cd - > /dev/null
-	cp $CP/build/artifacts/${nn}.apk /storage/emulated/0/.
+	cp $CP/build/artifacts/${nn}.apk /storage/emulated/0/${nn}.apk
 }
